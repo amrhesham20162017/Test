@@ -1,0 +1,69 @@
+<openerp>
+    <data>
+
+        <!--form view of the training model the we created-->
+        <!--<record id="form_training_test" model="ir.ui.view">-->
+            <!--<field name="model">training.training</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<form string="Training">-->
+                    <!--<sheet>-->
+                        <!--<group>-->
+                            <!--<field name="name_id"/>-->
+                            <!--<field name="test"/>-->
+                        <!--</group>-->
+                    <!--</sheet>-->
+                <!--</form>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <record id="form_test_test_id" model="ir.ui.view">
+            <field name="model">sale.order</field>
+            <!--ref you should go to edit form view and get the external ID -->
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!--we write here the xpath that we want to put the field after it -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="name_id"/>
+                    <field name="test"/>
+                    <field name="test_1"/>
+                    <field name="product"/>
+                    <field name="date"/>
+                    <field name="datetime"/>
+                    <field name="boolean"/>
+                    <field name="tree">
+                        <tree editable="1">
+                            <field name="username"/>
+                            <field name="salary"/>
+                        </tree>
+                    </field>
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <!--<record id="training_test_test" model="ir.actions.act_window">-->
+            <!--<field name="name">Test</field>-->
+            <!--<field name="type">ir.actions.act_window</field>-->
+            <!--<field name="res_model">training.training</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+        <!--</record>-->
+
+
+
+        <!--&lt;!&ndash; This Menu Item will appear in the Upper bar, That's why It needs NO parent or action &ndash;&gt;-->
+        <!--<menuitem id="training_root" name="Training" sequence="5"/>-->
+
+
+
+        <!--&lt;!&ndash; This Menu Item Must have a parent &ndash;&gt;-->
+        <!--<menuitem id="child_training_root" name="Test" parent="training_root"  sequence="2"/>-->
+
+
+
+        <!--&lt;!&ndash; This Menu Item must have a parent and an action &ndash;&gt;-->
+        <!--<menuitem id="test_id" name="test" parent="child_training_root" action="training_test_test" sequence="6"/>-->
+    </data>
+</openerp>

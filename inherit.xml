@@ -1,0 +1,23 @@
+<!-- Inherit Form View to Modify it -->
+        <record id="form_test_test_id" model="ir.ui.view">
+            <field name="model">sale.order</field>
+            <!--ref you should go to edit form view and get the external ID -->
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!--we write here the xpath that we want to put the field after it -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="name_id"/>
+                    <field name="test"/>
+                    <field name="date"/>
+                    <field name="datetime"/>
+                    <field name="boolean"/>
+                    <field name="tree">
+                        <tree editable="1">
+                            <field name="username"/>
+                            <field name="salary"/>
+                        </tree>
+                    </field>
+                </xpath>
+
+            </field>
+        </record>
